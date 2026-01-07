@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extreme Medicinals Site Plan | Vince Dang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            line-height: 1.6;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1.5rem 2rem;
+            color: #22c55e;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            letter-spacing: 3px;
+            margin-bottom: 0.5rem;
+        }
+        h1 span {
+            color: #22c55e;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .license {
+            color: #22c55e;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: #111;
+            border-radius: 12px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
+            color: #22c55e;
+            line-height: 1;
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.25rem;
+        }
+        .site-plan-container {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 3rem;
+        }
+        .site-plan-header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #111 100%);
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #222;
+        }
+        .site-plan-header h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #22c55e;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .site-plan-header p {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 0.25rem;
+        }
+        .site-plan-image {
+            width: 100%;
+            display: block;
+        }
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .detail-card {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+        .detail-card h3 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #22c55e;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #222;
+        }
+        .detail-list {
+            list-style: none;
+        }
+        .detail-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #1a1a1a;
+            font-size: 0.9rem;
+            color: #aaa;
+            display: flex;
+            justify-content: space-between;
+        }
+        .detail-list li:last-child {
+            border-bottom: none;
+        }
+        .detail-list li strong {
+            color: #fff;
+        }
+        .infrastructure-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .infra-item {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .infra-item .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .infra-item .label {
+            font-size: 0.8rem;
+            color: #888;
+        }
+        .infra-item .value {
+            font-weight: 600;
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(34, 197, 94, 0.02) 100%);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .highlight-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .highlight-box p {
+            color: #aaa;
+            line-height: 1.8;
+        }
+        .compliance-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 1.5rem;
+        }
+        .compliance-badge {
+            background: rgba(34, 197, 94, 0.15);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            color: #22c55e;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 3rem;
+            background: #111;
+            border-radius: 16px;
+        }
+        .cta-section h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+        .cta-section p {
+            color: #888;
+            margin-bottom: 1.5rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+            .stats-bar {
+                gap: 1.5rem;
+            }
+            .stat-value {
+                font-size: 2rem;
+            }
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="container">
+        <div class="hero">
+            <div class="badge">Built & Exited</div>
+            <h1>EXTREME <span>MEDICINALS</span></h1>
+            <p class="subtitle">21977 Sawyers Ln, Willits, CA 95490 | APN: 103-120-19 | 5.75 Acres</p>
+            <p class="license">License: LCA 19-0002398 | Specialty Mixed - Light Tier 1</p>
+        </div>
+        
+        <div class="stats-bar">
+            <div class="stat">
+                <div class="stat-value">5.75</div>
+                <div class="stat-label">Acres</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">4,950</div>
+                <div class="stat-label">Sq Ft Canopy</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">11</div>
+                <div class="stat-label">Greenhouses</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">$3.5M</div>
+                <div class="stat-label">Total Investment</div>
+            </div>
+        </div>
+        
+        <div class="site-plan-container">
+            <div class="site-plan-header">
+                <h2>Official Site Plan</h2>
+                <p>State of California Licensed Cultivation Facility | AG40 Zoning</p>
+            </div>
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Crect fill='%23f5f5dc' width='1200' height='600'/%3E%3Ctext x='600' y='280' text-anchor='middle' font-family='Arial' font-size='24' fill='%23666'%3ESite Plan Image%3C/text%3E%3Ctext x='600' y='320' text-anchor='middle' font-family='Arial' font-size='16' fill='%23888'%3E660 ft × 412.5 ft Property%3C/text%3E%3Ctext x='600' y='350' text-anchor='middle' font-family='Arial' font-size='14' fill='%23999'%3E(See uploaded site plan)%3C/text%3E%3C/svg%3E" alt="Extreme Medicinals Site Plan" class="site-plan-image">
+        </div>
+        
+        <div class="highlight-box">
+            <h3>WHAT I BUILT FROM RAW LAND</h3>
+            <p>Took this 5.75-acre parcel from raw agricultural land through full state and county licensing — CEQA compliance, Fish & Wildlife requirements, water board permits, and annual cannabis license. Managed all infrastructure: permitted water well, pump house, 11 greenhouses, processing barn, security systems, and waste management. Oversaw construction teams, agency coordination, and compliance documentation until successful exit.</p>
+            
+            <div class="compliance-badges">
+                <span class="compliance-badge">CEQA Compliant</span>
+                <span class="compliance-badge">Fish & Wildlife</span>
+                <span class="compliance-badge">State Licensed</span>
+                <span class="compliance-badge">County Permitted</span>
+                <span class="compliance-badge">Water Board</span>
+                <span class="compliance-badge">Annual License</span>
+            </div>
+        </div>
+        
+        <div class="details-grid">
+            <div class="detail-card">
+                <h3>Property Specifications</h3>
+                <ul class="detail-list">
+                    <li><span>Site Topography</span><strong>Flat / No Slope</strong></li>
+                    <li><span>Perimeter</span><strong>660 ft × 412.5 ft</strong></li>
+                    <li><span>Total Acreage</span><strong>5.75 acres</strong></li>
+                    <li><span>Zoning</span><strong>AG40</strong></li>
+                    <li><span>APN</span><strong>103-120-19</strong></li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Cultivation Area</h3>
+                <ul class="detail-list">
+                    <li><span>Premise Area</span><strong>200 ft × 190 ft</strong></li>
+                    <li><span>Total Canopy</span><strong>4,950 sq ft</strong></li>
+                    <li><span>Greenhouses</span><strong>11 units (6' × 75')</strong></li>
+                    <li><span>Protection</span><strong>7' Animal Fence</strong></li>
+                    <li><span>Security</span><strong>Perimeter Fence + Locked Gate</strong></li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Buildings & Structures</h3>
+                <ul class="detail-list">
+                    <li><span>Barn (Admin/Processing)</span><strong>30' × 50' (1,500 sf)</strong></li>
+                    <li><span>Pump House</span><strong>10' × 12' (120 sf)</strong></li>
+                    <li><span>Storage Sheds</span><strong>2 units (12' × 8')</strong></li>
+                    <li><span>Carports</span><strong>2 units (20' × 30')</strong></li>
+                    <li><span>Conex Storage</span><strong>3 units (8' × 40')</strong></li>
+                </ul>
+            </div>
+            
+            <div class="detail-card">
+                <h3>Water Infrastructure</h3>
+                <ul class="detail-list">
+                    <li><span>Permitted Water Well</span><strong>GPS: 39.393399, -123.325503</strong></li>
+                    <li><span>Water Tanks</span><strong>2 × 1,500 gal + 1 × 2,500 gal</strong></li>
+                    <li><span>Pump House Tank</span><strong>2,500 gal</strong></li>
+                    <li><span>Irrigation</span><strong>Drip line management</strong></li>
+                    <li><span>Runoff</span><strong>No off-site water</strong></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="detail-card" style="margin-bottom: 3rem;">
+            <h3>Infrastructure Built</h3>
+            <div class="infrastructure-grid">
+                <div class="infra-item">
+                    <div class="icon">🏗️</div>
+                    <div class="value">Permitted Well</div>
+                    <div class="label">Water Source</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">⚡</div>
+                    <div class="value">PG&E Service</div>
+                    <div class="label">Power</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">🏠</div>
+                    <div class="value">11 Greenhouses</div>
+                    <div class="label">Cultivation</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">🚿</div>
+                    <div class="value">5,500 gal</div>
+                    <div class="label">Water Storage</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">🔒</div>
+                    <div class="value">Locked Gates</div>
+                    <div class="label">Security</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">🚽</div>
+                    <div class="value">2 Portable</div>
+                    <div class="label">Restrooms</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">🗑️</div>
+                    <div class="value">Waste Mgmt</div>
+                    <div class="label">Compliance</div>
+                </div>
+                <div class="infra-item">
+                    <div class="icon">📦</div>
+                    <div class="value">960 sq ft</div>
+                    <div class="label">Storage</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h3>THIS IS WHAT $3.5M IN DEVELOPMENT LOOKS LIKE</h3>
+            <p>From raw ag land to fully licensed, compliant operation. The same process applies to residential and commercial development — just different agencies.</p>
+            <a href="index.html" class="btn">Back to Portfolio</a>
+        </div>
+    </div>
+</body>
+</html>
+
