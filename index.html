@@ -808,6 +808,107 @@
             letter-spacing: 1px;
         }
 
+        /* Traction Section */
+        .traction-section {
+            background: var(--bg-secondary);
+        }
+
+        .traction-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .traction-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .traction-card {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, var(--bg-card) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .traction-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem;
+                gap: 2rem;
+            }
+        }
+
+        .traction-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .traction-stat {
+            text-align: center;
+        }
+
+        .traction-stat .stat-value {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            color: var(--accent);
+            line-height: 1;
+            display: block;
+        }
+
+        .traction-stat .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .traction-content h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .traction-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .btn-sm {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.85rem;
+        }
+
+        .traction-insight {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .insight-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .traction-insight p {
+            color: var(--text-secondary);
+            font-style: italic;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
         /* Projects */
         .projects-grid {
             display: grid;
@@ -882,6 +983,28 @@
 
         .project-link:hover {
             gap: 0.75rem;
+        }
+
+        .document-card .project-image {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.15) 0%, var(--bg-card) 100%);
+        }
+
+        .document-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .detail-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid rgba(212, 168, 83, 0.3);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* My Standard Section */
@@ -1091,6 +1214,7 @@
                 <li><a href="#plays">90-Day Plays</a></li>
                 <li><a href="#capabilities">Capabilities</a></li>
                 <li><a href="#experience">Experience</a></li>
+                <li><a href="#traction">Traction</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -1459,12 +1583,47 @@
         </div>
     </section>
 
+    <!-- Social Proof -->
+    <section id="traction" class="traction-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Social Proof</div>
+                <h2 class="section-title">TAPPED IN</h2>
+            </div>
+            <div class="traction-grid">
+                <div class="traction-card featured">
+                    <div class="traction-stats">
+                        <div class="traction-stat">
+                            <span class="stat-value">2M+</span>
+                            <span class="stat-label">Views</span>
+                        </div>
+                        <div class="traction-stat">
+                            <span class="stat-value">200K+</span>
+                            <span class="stat-label">Likes</span>
+                        </div>
+                    </div>
+                    <div class="traction-content">
+                        <h3>Viral Content Creator</h3>
+                        <p>I understand what makes content spread. This isn't theory — I've done it with 2 million+ views on a single piece of content.</p>
+                        <a href="https://www.instagram.com/reel/C7pkU71Ibn0/?igsh=MTc4MmM1YmI2Ng==" target="_blank" class="btn btn-primary btn-sm">
+                            Watch the Reel →
+                        </a>
+                    </div>
+                </div>
+                <div class="traction-insight">
+                    <div class="insight-icon">💡</div>
+                    <p>"When I say I can turn your Instagram into a lead machine, I'm not guessing. I know what hooks, what converts, and what builds trust at scale."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects -->
     <section id="projects">
         <div class="container">
             <div class="section-header">
                 <div class="section-tag">Proof of Work</div>
-                <h2 class="section-title">PROJECTS</h2>
+                <h2 class="section-title">PROJECTS & DELIVERABLES</h2>
             </div>
             <div class="projects-grid">
                 <div class="project-card">
@@ -1482,6 +1641,19 @@
                 </div>
                 <div class="project-card">
                     <div class="project-image">
+                        <span>SILVER CROWD</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Platform</div>
+                        <h3>SilverCrowdCraft</h3>
+                        <p>Construction project management and crowdfunding platform. Live dashboards, build tracking, timeline monitoring, and investor transparency tools.</p>
+                        <a href="https://silvercrowdcraft.com" target="_blank" class="project-link">
+                            View Platform →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
                         <span>NETWORK 20</span>
                     </div>
                     <div class="project-content">
@@ -1493,17 +1665,34 @@
                         </a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card document-card">
                     <div class="project-image">
-                        <span>ADU REPORT</span>
+                        <span>📄 ADU REPORT</span>
                     </div>
                     <div class="project-content">
                         <div class="project-type">Feasibility Analysis</div>
                         <h3>Garden Highway ADU</h3>
-                        <p>Complete ADU feasibility for Dr. Ashish Atreja. $565K-$727K estimate navigating flood zones, CVFPB permits, septic requirements, and 50% rule optimization.</p>
-                        <a href="#" class="project-link">
-                            Case Study →
-                        </a>
+                        <p>Complete 1,500 SF ADU feasibility for Dr. Ashish Atreja. $565K-$727K estimate navigating FEMA flood zones, CVFPB permits, deep septic (40-50ft), and 50% rule optimization.</p>
+                        <div class="document-details">
+                            <span class="detail-tag">Flood Zone</span>
+                            <span class="detail-tag">CVFPB Permits</span>
+                            <span class="detail-tag">Septic Design</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card document-card">
+                    <div class="project-image">
+                        <span>📄 ROOFING PO</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Automation Example</div>
+                        <h3>8445 Citadel Way</h3>
+                        <p>Home Depot Pro Desk purchase order with full SKU automation. 3,000 SF GAF Timberline HDZ system — $7,484-$7,634 in materials with complete Internet #s and model numbers.</p>
+                        <div class="document-details">
+                            <span class="detail-tag">SKU Parsing</span>
+                            <span class="detail-tag">Comet AI</span>
+                            <span class="detail-tag">30 Squares</span>
+                        </div>
                     </div>
                 </div>
                 <div class="project-card">
@@ -1583,7 +1772,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.value-card, .business-card, .capability-lane, .timeline-item, .project-card, .play-card, .pitch-box, .content-pillars, .pillar').forEach(el => {
+        document.querySelectorAll('.value-card, .business-card, .capability-lane, .timeline-item, .project-card, .play-card, .pitch-box, .content-pillars, .pillar, .traction-card, .traction-insight').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
