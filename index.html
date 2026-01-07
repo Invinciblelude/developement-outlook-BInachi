@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vince Dang | Operations & Development Leader</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --accent: #d4a853;
+            --accent-dim: #b8924a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --text-muted: #666666;
+            --border: #2a2a2a;
+            --gradient-gold: linear-gradient(135deg, #d4a853 0%, #f4d794 50%, #d4a853 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.03;
+            background-image: 
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 6rem 2rem 4rem;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at 30% 20%, rgba(212, 168, 83, 0.08) 0%, transparent 50%),
+                        radial-gradient(ellipse at 70% 80%, rgba(212, 168, 83, 0.05) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 168, 83, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 12vw, 8rem);
+            line-height: 0.95;
+            letter-spacing: 6px;
+            margin-bottom: 0.5rem;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            line-height: 1;
+            letter-spacing: 4px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease-out 0.15s both;
+            color: var(--text-secondary);
+        }
+
+        .hero-tagline span {
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.5rem;
+        }
+
+        /* Section Styles */
+        section {
+            position: relative;
+            z-index: 2;
+            padding: 6rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-tag {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            letter-spacing: 2px;
+        }
+
+        /* Value Proposition */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .value-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-gold);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-dim);
+        }
+
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .value-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* 90-Day Plays Section */
+        .plays-section {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+        }
+
+        .section-desc {
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .plays-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .play-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .play-card.play-featured {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.05) 0%, var(--bg-card) 100%);
+            border-color: var(--accent-dim);
+        }
+
+        @media (min-width: 1024px) {
+            .play-card.play-featured {
+                display: grid;
+                grid-template-columns: auto 1fr 1fr;
+                grid-template-rows: auto auto 1fr auto;
+                gap: 1rem 2rem;
+            }
+            
+            .play-card.play-featured .play-number {
+                grid-row: 1 / 3;
+            }
+            
+            .play-card.play-featured .play-insight {
+                grid-column: 2 / -1;
+            }
+            
+            .play-card.play-featured .play-details {
+                grid-column: 2 / -1;
+            }
+            
+            .play-card.play-featured .play-outcome {
+                grid-column: 2 / -1;
+            }
+        }
+
+        .play-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .play-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        .play-subtitle {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .play-insight {
+            background: rgba(212, 168, 83, 0.1);
+            border-left: 3px solid var(--accent);
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .play-insight strong {
+            color: var(--accent);
+        }
+
+        .play-details h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        .play-details ul {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+
+        .play-details > ul > li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .play-details > ul > li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .play-details ul ul {
+            margin-top: 0.5rem;
+            margin-left: 1rem;
+        }
+
+        .play-details ul ul li {
+            padding: 0.25rem 0;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .play-details ul ul li::before {
+            content: '•';
+            margin-right: 0.5rem;
+            color: var(--accent-dim);
+        }
+
+        .play-outcome {
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.2);
+            border-radius: 8px;
+            padding: 1rem;
+            font-size: 0.9rem;
+            color: #22c55e;
+        }
+
+        .play-outcome strong {
+            color: #4ade80;
+        }
+
+        /* 20-Second Pitch Box */
+        .pitch-box {
+            background: linear-gradient(135deg, rgba(212, 168, 83, 0.1) 0%, rgba(212, 168, 83, 0.02) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .pitch-label {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .pitch-box blockquote {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: var(--text-primary);
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .pitch-box blockquote strong {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .pitch-followup {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Content Pillars */
+        .content-pillars {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+        }
+
+        .content-pillars h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .pillar {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .pillar:hover {
+            transform: translateY(-5px);
+        }
+
+        .pillar-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .pillar p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        /* Business Ecosystem */
+        .ecosystem-section {
+            background: var(--bg-secondary);
+        }
+
+        .ecosystem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .business-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .business-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(212, 168, 83, 0.03) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .business-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.35rem 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: #22c55e;
+            margin-bottom: 1.5rem;
+        }
+
+        .business-status::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .business-card h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.75rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .business-card .domain {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .business-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .business-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .service-tag {
+            padding: 0.35rem 0.75rem;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 6px;
+            font-size: 0.75rem;
+            color: var(--accent);
+        }
+
+        .business-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .business-link:hover {
+            color: var(--accent);
+        }
+
+        /* Capabilities */
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .capability-lane {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+
+        .lane-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .lane-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-gold);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.25rem;
+            color: var(--bg-primary);
+        }
+
+        .lane-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .capability-list {
+            list-style: none;
+        }
+
+        .capability-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+        }
+
+        .capability-list li:last-child {
+            border-bottom: none;
+        }
+
+        .capability-list li::before {
+            content: '→';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Experience Timeline */
+        .experience-section {
+            background: var(--bg-secondary);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3rem;
+            padding-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            border: 3px solid var(--bg-secondary);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .timeline-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .timeline-tag {
+            padding: 0.25rem 0.75rem;
+            background: rgba(212, 168, 83, 0.1);
+            border-radius: 4px;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-dim);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .project-image span {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--accent);
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-type {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 0.75rem;
+        }
+
+        /* My Standard Section */
+        .standard-section {
+            padding: 6rem 2rem;
+            background: var(--bg-primary);
+        }
+
+        .standard-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .standard-quote {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            font-weight: 300;
+            color: var(--text-primary);
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .standard-quote::before,
+        .standard-quote::after {
+            content: '"';
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            line-height: 1;
+        }
+
+        .standard-quote::before {
+            top: -1rem;
+            left: -2rem;
+        }
+
+        .standard-quote::after {
+            bottom: -3rem;
+            right: -2rem;
+        }
+
+        @media (max-width: 768px) {
+            .standard-quote::before,
+            .standard-quote::after {
+                display: none;
+            }
+            
+            .standard-quote {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-gold);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 168, 83, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .footer-copy {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .hero-stats {
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .ecosystem-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                padding-left: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">VINCE DANG</div>
+            <ul class="nav-links">
+                <li><a href="#value">Value</a></li>
+                <li><a href="#ecosystem">Businesses</a></li>
+                <li><a href="#plays">90-Day Plays</a></li>
+                <li><a href="#capabilities">Capabilities</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">Operations & Development Leader</div>
+            <h1>VINCE DANG</h1>
+            <h2 class="hero-tagline">FROM FIRES TO <span>FOUNDATIONS</span></h2>
+            <p class="hero-subtitle">
+                17 years of high-stakes leadership. $3.5M+ in ground-up development. 
+                3 active businesses. I build the systems that scale construction operations — 
+                so your reputation and your pipeline match.
+            </p>
+            <div class="hero-stats">
+                <div class="stat">
+                    <div class="stat-number">17</div>
+                    <div class="stat-label">Years Firefighting</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">$3.5M</div>
+                    <div class="stat-label">Projects Managed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Crews Led</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Properties Owned</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section id="value">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">What I Bring</div>
+                <h2 class="section-title">NOT IDEAS. INFRASTRUCTURE.</h2>
+            </div>
+            <div class="value-grid">
+                <div class="value-card">
+                    <div class="value-icon">⚡</div>
+                    <h3>Crisis-Tested Leadership</h3>
+                    <p>5 years Helitack — coordinating air ops, multi-team responses, and zero-fail environments. I run job sites like I ran wildfires: no excuses, zero downtime.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🏗️</div>
+                    <h3>Ground-Up Development</h3>
+                    <p>Took raw ag land through CEQA, Fish & Wildlife, state/county permits to fully licensed operations. $3.5M in builds with wells, power, and warehouses.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">🔧</div>
+                    <h3>Active Operations</h3>
+                    <p>Running 3 businesses right now: HomeRiserFix (GC services), SilverCrowdCraft (project management), TheHandymanFixIt (repairs). Not theory — live infrastructure.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">📊</div>
+                    <h3>Systems Builder</h3>
+                    <p>I build platforms: TheNetwork20 for crew sourcing, Comet AI for bid automation, investor-grade pitch decks. I create systems so you don't have to be everywhere.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Ecosystem -->
+    <section id="ecosystem" class="ecosystem-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Active Businesses</div>
+                <h2 class="section-title">THE ECOSYSTEM</h2>
+            </div>
+            <div class="ecosystem-grid">
+                <div class="business-card">
+                    <div class="business-status">Live & Active</div>
+                    <h3>HOME RISER FIX</h3>
+                    <div class="domain">homeriserfix.com</div>
+                    <p>Full-service GC in Northern California. Community-focused team delivering professional home services with youth training programs.</p>
+                    <div class="business-services">
+                        <span class="service-tag">Permitting</span>
+                        <span class="service-tag">Custom Building</span>
+                        <span class="service-tag">Maintenance</span>
+                        <span class="service-tag">Fencing</span>
+                        <span class="service-tag">Painting</span>
+                    </div>
+                    <a href="https://homeriserfix.com" target="_blank" class="business-link">
+                        Visit Site →
+                    </a>
+                </div>
+                <div class="business-card">
+                    <div class="business-status">Live & Active</div>
+                    <h3>SILVER CROWD CRAFT</h3>
+                    <div class="domain">silvercrowdcraft.com</div>
+                    <p>Construction project management platform. Live dashboards for build tracking, timeline monitoring, and client transparency.</p>
+                    <div class="business-services">
+                        <span class="service-tag">Project Dashboard</span>
+                        <span class="service-tag">Build Tracking</span>
+                        <span class="service-tag">Timeline Management</span>
+                        <span class="service-tag">Crowdfunding</span>
+                    </div>
+                    <a href="https://silvercrowdcraft.com" target="_blank" class="business-link">
+                        Visit Site →
+                    </a>
+                </div>
+                <div class="business-card">
+                    <div class="business-status">Live & Active</div>
+                    <h3>THE HANDYMAN FIX IT</h3>
+                    <div class="domain">thehandymanfixit.com</div>
+                    <p>Home repair services with emphasis on care and quality. Active customer engagement and lead capture for the renovation pipeline.</p>
+                    <div class="business-services">
+                        <span class="service-tag">Home Repairs</span>
+                        <span class="service-tag">Maintenance</span>
+                        <span class="service-tag">Quality Service</span>
+                    </div>
+                    <a href="https://thehandymanfixit.com" target="_blank" class="business-link">
+                        Visit Site →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 90-Day Plays -->
+    <section id="plays" class="plays-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Concrete Value</div>
+                <h2 class="section-title">3 PLAYS IN 90 DAYS</h2>
+                <p class="section-desc">Not ideas. Executable plays you can say yes or no to.</p>
+            </div>
+            
+            <div class="plays-grid">
+                <div class="play-card play-featured">
+                    <div class="play-number">01</div>
+                    <h3>SOCIAL ENGINE</h3>
+                    <p class="play-subtitle">Turn your Instagram into a real lead channel</p>
+                    
+                    <div class="play-insight">
+                        <strong>Current State:</strong> Your content looks better than 90% of builders — clean visuals, finished product, you as the face. But 1.5K followers means the right clients aren't seeing it.
+                    </div>
+                    
+                    <div class="play-details">
+                        <h4>The Play:</h4>
+                        <ul>
+                            <li><strong>Define 3 target avatars:</strong> Local professionals, Bay Area transplants, athletes/entrepreneurs</li>
+                            <li><strong>30-day content calendar:</strong>
+                                <ul>
+                                    <li>40% finished product tours with hooks & CTAs</li>
+                                    <li>40% "how we protect you" — change orders, cost transparency, avoiding scams</li>
+                                    <li>20% Paul as the trusted builder — talking head clips</li>
+                                </ul>
+                            </li>
+                            <li><strong>Repetition over virality:</strong> Same format weekly until you own the market</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="play-outcome">
+                        <strong>Outcome:</strong> 3x engagement, qualified HNW leads, not vanity likes
+                    </div>
+                </div>
+                
+                <div class="play-card">
+                    <div class="play-number">02</div>
+                    <h3>AI AVATAR OF PAUL</h3>
+                    <p class="play-subtitle">24/7 trust-building and lead pre-qualification</p>
+                    
+                    <div class="play-details">
+                        <h4>The Play:</h4>
+                        <ul>
+                            <li>Create an AI avatar that explains: "Here's how people get burned — and how we prevent it"</li>
+                            <li><strong>Website/chat avatar</strong> answering FAQs</li>
+                            <li><strong>Short vertical clips</strong> on allowances, draws, selections, scope creep</li>
+                            <li><strong>Pre-qual video</strong> every lead gets before first meeting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="play-outcome">
+                        <strong>Outcome:</strong> Fewer bad leads, educated prospects, scalable trust
+                    </div>
+                </div>
+                
+                <div class="play-card">
+                    <div class="play-number">03</div>
+                    <h3>"SCAM-AVOID" SERIES</h3>
+                    <p class="play-subtitle">Turn competitor failures into your trust asset</p>
+                    
+                    <div class="play-details">
+                        <h4>The Play:</h4>
+                        <ul>
+                            <li>Reference real stories of clients getting burned by other builders</li>
+                            <li><strong>Recurring series:</strong> "How not to get screwed building your house"</li>
+                            <li>Each episode: 60-90 seconds where Paul breaks down one mistake and how your process prevents it</li>
+                            <li>Topics: contracts, selections, inspections, draw schedules, lender coordination</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="play-outcome">
+                        <strong>Outcome:</strong> Position Bianchi-Tillett as the safe choice in a risky market
+                    </div>
+                </div>
+            </div>
+            
+            <!-- The 20-Second Pitch -->
+            <div class="pitch-box">
+                <div class="pitch-label">THE 20-SECOND PITCH</div>
+                <blockquote>
+                    "I'm not here to tell my story — I'm here to show you leverage. In 90 days I can: <strong>1)</strong> turn your Instagram into a real lead channel aimed at HNW and custom clients, <strong>2)</strong> build an AI avatar of you that pre-qualifies leads 24/7, and <strong>3)</strong> layer AI tools across your bids and updates so clients feel informed while your team saves hours."
+                </blockquote>
+                <div class="pitch-followup">
+                    <em>"Is that interesting, or should I go straight into the build-side operations plays?"</em>
+                </div>
+            </div>
+            
+            <div class="content-pillars">
+                <h3>5 CONTENT PILLARS (Proven Frameworks)</h3>
+                <div class="pillars-grid">
+                    <div class="pillar">
+                        <div class="pillar-icon">🔧</div>
+                        <h4>Trust + Education</h4>
+                        <p>Weekly 60-sec reels explaining decisions that protect clients. Same format, different insight. Build authority.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🏠</div>
+                        <h4>ADU/SB9 Lane</h4>
+                        <p>Tap regulated, high-demand market. Short tours + entitlement explainers. Show you handle complexity.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🚗</div>
+                        <h4>Lifestyle Positioning</h4>
+                        <p>Feature younger clients, job sites with luxury cars. Pull HNW buyers under 40 with aspirational content.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🤖</div>
+                        <h4>Next-Level Tech</h4>
+                        <p>AI avatars, 3D walkthroughs, interactive renders. Make other builders look stuck in 2010.</p>
+                    </div>
+                    <div class="pillar">
+                        <div class="pillar-icon">🔁</div>
+                        <h4>Repetition > Virality</h4>
+                        <p>Post the same value content weekly until market and algorithm recognize you as dominant voice.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities -->
+    <section id="capabilities">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Four Lanes</div>
+                <h2 class="section-title">CAPABILITIES</h2>
+            </div>
+            <div class="capabilities-grid">
+                <div class="capability-lane">
+                    <div class="lane-header">
+                        <div class="lane-number">1</div>
+                        <div class="lane-title">Operations & People</div>
+                    </div>
+                    <ul class="capability-list">
+                        <li>TheNetwork20 integration — crew sourcing on-demand</li>
+                        <li>Journeyman/apprentice training programs</li>
+                        <li>Scale teams without losing craftsmanship</li>
+                        <li>Process audits — identify and eliminate bottlenecks</li>
+                        <li>40+ person crew management experience</li>
+                    </ul>
+                </div>
+                <div class="capability-lane">
+                    <div class="lane-header">
+                        <div class="lane-number">2</div>
+                        <div class="lane-title">Technology & Data</div>
+                    </div>
+                    <ul class="capability-list">
+                        <li>Comet AI — 30-50% faster bid processing</li>
+                        <li>AI avatar development for lead qualification</li>
+                        <li>AR/VR walkthrough integration</li>
+                        <li>Project dashboards for client transparency</li>
+                        <li>Automated audit and consolidation systems</li>
+                    </ul>
+                </div>
+                <div class="capability-lane">
+                    <div class="lane-header">
+                        <div class="lane-number">3</div>
+                        <div class="lane-title">Capital & Deal Structure</div>
+                    </div>
+                    <ul class="capability-list">
+                        <li>Investor-grade pitch deck creation</li>
+                        <li>Equity crowdfunding for $1-5M tranches</li>
+                        <li>HNW and athlete investor targeting</li>
+                        <li>IRR modeling and deal packaging</li>
+                        <li>ADU feasibility analysis</li>
+                    </ul>
+                </div>
+                <div class="capability-lane">
+                    <div class="lane-header">
+                        <div class="lane-number">4</div>
+                        <div class="lane-title">Brand & Distribution</div>
+                    </div>
+                    <ul class="capability-list">
+                        <li>Social media strategy for HNW lead generation</li>
+                        <li>Content calendars and production</li>
+                        <li>Trust-building "scam-avoid" content series</li>
+                        <li>AI-generated marketing assets</li>
+                        <li>Paid amplification for target demographics</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Background</div>
+                <h2 class="section-title">EXPERIENCE</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2007 — Present</div>
+                    <div class="timeline-title">Firefighter / Helitack Crew</div>
+                    <div class="timeline-desc">17 years Cal Fire including 5 years on Helitack — helicopter-based firefighting requiring zero-fail coordination, rapid decision-making, and multi-team leadership in extreme conditions.</div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">Crisis Leadership</span>
+                        <span class="timeline-tag">Air Operations</span>
+                        <span class="timeline-tag">Team Coordination</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">9 Years</div>
+                    <div class="timeline-title">Cannabis Development — Raw Land to License</div>
+                    <div class="timeline-desc">Built 3 farms on 18-acre compound from raw agricultural land to full annual state/county license. Navigated CEQA, Fish & Wildlife, water board. Managed $3.5M in infrastructure: wells, 400-amp power, multiple warehouses.</div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">CEQA</span>
+                        <span class="timeline-tag">Entitlements</span>
+                        <span class="timeline-tag">GC Operations</span>
+                        <span class="timeline-tag">$3.5M Builds</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Ongoing</div>
+                    <div class="timeline-title">Real Estate Portfolio</div>
+                    <div class="timeline-desc">Own and manage 7 properties — hands-on CapEx, maintenance, vendor coordination, tenant management. Direct experience with cashflow, ROI optimization, and property investment strategy.</div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">7 Properties</span>
+                        <span class="timeline-tag">Asset Management</span>
+                        <span class="timeline-tag">Investment</span>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Current</div>
+                    <div class="timeline-title">Active Business Operations</div>
+                    <div class="timeline-desc">Running 3 service businesses in Northern California construction: HomeRiserFix (GC/permits), SilverCrowdCraft (project management), TheHandymanFixIt (repairs). Plus platforms: TheNetwork20 (crew sourcing), Comet AI (automation).</div>
+                    <div class="timeline-tags">
+                        <span class="timeline-tag">3 Businesses</span>
+                        <span class="timeline-tag">NorCal</span>
+                        <span class="timeline-tag">Active Operations</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-tag">Proof of Work</div>
+                <h2 class="section-title">PROJECTS</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <span>VISTA LAKE</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Investment Pitch</div>
+                        <h3>Vista Lake Estates</h3>
+                        <p>15 entitled luxury lots in Granite Bay. Full investor-grade package with IRR ranges, execution timeline, competitive analysis, and data-room structure.</p>
+                        <a href="https://invinciblelude.github.io/vista-lake-estates/" target="_blank" class="project-link">
+                            View Project →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <span>NETWORK 20</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Platform</div>
+                        <h3>TheNetwork20</h3>
+                        <p>Talent and crew sourcing platform connecting field-ready specialists with GCs and developers. Plumbers, electricians, framers, PMs on-demand.</p>
+                        <a href="https://thenetwork20.com" target="_blank" class="project-link">
+                            View Platform →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <span>ADU REPORT</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Feasibility Analysis</div>
+                        <h3>Garden Highway ADU</h3>
+                        <p>Complete ADU feasibility for Dr. Ashish Atreja. $565K-$727K estimate navigating flood zones, CVFPB permits, septic requirements, and 50% rule optimization.</p>
+                        <a href="#" class="project-link">
+                            Case Study →
+                        </a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <span>COMET AI</span>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-type">Automation Tool</div>
+                        <h3>Comet AI Audit System</h3>
+                        <p>AI-powered audit and automation for bid consolidation, SKU parsing, variance flagging. Cuts manual review from hours to minutes. 30-50% faster processing.</p>
+                        <a href="#" class="project-link">
+                            Learn More →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- My Standard -->
+    <section class="standard-section">
+        <div class="container">
+            <div class="standard-content">
+                <div class="standard-quote">
+                    "My standard is simple: if you're the best builder in Granite Bay, your digital presence, your client education, and your operations should look and feel like the best too. I build those systems — using AI, social, and field experience — so your reputation and your pipeline match."
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>LET'S BUILD TOGETHER</h2>
+                <p>I'm not asking for a job. I'm asking to be your scaler. Put me where there's a bottleneck — finding lots, organizing crews, packaging deals, or opening a new sector — and I build the system so it runs without you having to be everywhere.</p>
+                <div class="cta-buttons">
+                    <a href="tel:9166342083" class="btn btn-primary">
+                        📞 (916) 634-2083
+                    </a>
+                    <a href="https://homeriserfix.com" target="_blank" class="btn btn-secondary">
+                        View HomeRiserFix
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://homeriserfix.com" target="_blank">HomeRiserFix</a>
+            <a href="https://silvercrowdcraft.com" target="_blank">SilverCrowdCraft</a>
+            <a href="https://thehandymanfixit.com" target="_blank">TheHandymanFixIt</a>
+            <a href="https://thenetwork20.com" target="_blank">TheNetwork20</a>
+            <a href="https://invinciblelude.github.io/vista-lake-estates/" target="_blank">Vista Lake Estates</a>
+            <a href="https://github.com/Invinciblelude" target="_blank">GitHub</a>
+        </div>
+        <div class="footer-copy">
+            © 2026 Vince Dang. Built for results, not resumes.
+        </div>
+    </footer>
+
+    <script>
+        // Smooth reveal on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.value-card, .business-card, .capability-lane, .timeline-item, .project-card, .play-card, .pitch-box, .content-pillars, .pillar').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(10, 10, 10, 0.98)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 10, 0.9)';
+            }
+        });
+    </script>
+</body>
+</html>
+
