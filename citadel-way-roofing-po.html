@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8445 Citadel Way Roofing PO | Vince Dang</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f5f5f5;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+        .document {
+            max-width: 900px;
+            margin: 2rem auto;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            color: white;
+            padding: 2rem;
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        .company-info {
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+        .doc-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 1.5rem 0 0.5rem;
+            padding-bottom: 0.5rem;
+        }
+        .doc-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .project-info {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+        }
+        .content {
+            padding: 2rem;
+        }
+        .section {
+            margin-bottom: 2rem;
+        }
+        .section h2 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #f97316;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f97316;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.8rem;
+        }
+        th, td {
+            padding: 0.6rem 0.5rem;
+            text-align: left;
+            border: 1px solid #e5e5e5;
+        }
+        th {
+            background: #1a1a1a;
+            color: white;
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .price-col {
+            text-align: right !important;
+        }
+        .subtotal-row {
+            background: #f97316 !important;
+            color: white;
+            font-weight: 700;
+        }
+        .subtotal-row td {
+            border-color: #ea580c;
+        }
+        .total-section {
+            background: #1a1a1a;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+        .total-section h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            color: #f97316;
+        }
+        .total-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .total-grid .label {
+            color: #aaa;
+        }
+        .total-grid .value {
+            text-align: right;
+            font-weight: 600;
+        }
+        .grand-total {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #333;
+            font-size: 1.25rem;
+        }
+        .grand-total .value {
+            color: #f97316;
+        }
+        .note {
+            background: #fffbeb;
+            border: 1px solid #f59e0b;
+            border-radius: 6px;
+            padding: 1rem;
+            font-size: 0.8rem;
+            color: #92400e;
+            margin-top: 1.5rem;
+        }
+        .signature-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid #eee;
+        }
+        .signature-block {
+            font-size: 0.85rem;
+        }
+        .signature-block .label {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .signature-line {
+            border-bottom: 1px solid #333;
+            height: 2rem;
+            margin-bottom: 0.25rem;
+        }
+        .signature-name {
+            color: #666;
+            font-size: 0.8rem;
+        }
+        .license-badge {
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            color: #666;
+            text-align: center;
+            padding: 0.75rem;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .back-link {
+            display: inline-block;
+            margin: 1rem 2rem 2rem;
+            color: #f97316;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .automation-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            padding: 0.35rem 0.75rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-left: 1rem;
+        }
+        @media print {
+            body { background: white; }
+            .document { box-shadow: none; margin: 0; }
+            .back-link { display: none; }
+        }
+        @media (max-width: 768px) {
+            table { font-size: 0.7rem; }
+            th, td { padding: 0.4rem 0.3rem; }
+            .signature-section { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Portfolio</a>
+    
+    <div class="document">
+        <div class="header">
+            <div class="company-name">Home Rise Fix</div>
+            <div class="company-info">Solomon M. Rigney | CSLB License #1126099<br>
+            Sacramento, CA | (916) 408-2256 | info@homerisefix.com | www.homerisefix.com</div>
+            
+            <div class="doc-title">HOME DEPOT PRO DESK PURCHASE ORDER <span class="automation-badge">Comet AI Automated</span></div>
+            <div class="doc-subtitle">8445 Citadel Way — Roofing Materials with SKUs</div>
+            
+            <div class="project-info">
+                <strong>Project:</strong> 3,000 sq. ft. (30 Squares) Roof Replacement | <strong>System:</strong> GAF Timberline HDZ + Tiger Paw + Grace I&W
+            </div>
+        </div>
+        
+        <div class="content">
+            <div class="section">
+                <h2>Main Roofing Materials</h2>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Home Depot Product</th>
+                        <th>Internet #</th>
+                        <th>Model #</th>
+                        <th>Qty</th>
+                        <th>Unit</th>
+                        <th class="price-col">Price</th>
+                        <th class="price-col">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Architectural Shingles</td>
+                        <td>GAF Timberline HDZ Charcoal 33.33 sq.ft./bundle</td>
+                        <td>315674738</td>
+                        <td>0489180</td>
+                        <td>105</td>
+                        <td>Bundles</td>
+                        <td class="price-col">$39.00</td>
+                        <td class="price-col">$4,095.00</td>
+                    </tr>
+                    <tr>
+                        <td>Synthetic Underlayment</td>
+                        <td>GAF Tiger Paw 1000 sq.ft. Premium Synthetic</td>
+                        <td>206885977</td>
+                        <td>0980</td>
+                        <td>4</td>
+                        <td>Rolls</td>
+                        <td class="price-col">$80.00</td>
+                        <td class="price-col">$320.00</td>
+                    </tr>
+                    <tr>
+                        <td>Ice & Water Shield</td>
+                        <td>Grace Ice & Water Shield HT 36" × 75'</td>
+                        <td>1000215716</td>
+                        <td>5003093</td>
+                        <td>3</td>
+                        <td>Rolls</td>
+                        <td class="price-col">$140.00</td>
+                        <td class="price-col">$420.00</td>
+                    </tr>
+                    <tr>
+                        <td>W-Profile Valley Metal</td>
+                        <td>24ga Galvanized W-Valley 10'</td>
+                        <td>Store SKU</td>
+                        <td>(local)</td>
+                        <td>17</td>
+                        <td>Pieces</td>
+                        <td class="price-col">$40.00</td>
+                        <td class="price-col">$680.00</td>
+                    </tr>
+                    <tr>
+                        <td>Drip Edge</td>
+                        <td>Aluminum/Galv Drip Edge 10'</td>
+                        <td>202092839</td>
+                        <td>15541</td>
+                        <td>35</td>
+                        <td>Pieces</td>
+                        <td class="price-col">$7.50</td>
+                        <td class="price-col">$262.50</td>
+                    </tr>
+                    <tr>
+                        <td>Step Flashing</td>
+                        <td>5" × 7" Galv. Step Flashing</td>
+                        <td>Store SKU</td>
+                        <td>(local)</td>
+                        <td>3</td>
+                        <td>Bundles</td>
+                        <td class="price-col">$40.00</td>
+                        <td class="price-col">$120.00</td>
+                    </tr>
+                    <tr>
+                        <td>Chimney Flashing Kit</td>
+                        <td>Multi-piece Galv/Lead Chimney Kit</td>
+                        <td>Store SKU</td>
+                        <td>(local)</td>
+                        <td>1</td>
+                        <td>Kit</td>
+                        <td class="price-col">$130.00</td>
+                        <td class="price-col">$130.00</td>
+                    </tr>
+                    <tr>
+                        <td>Skylight Flashing Kit</td>
+                        <td>Velux EDL/ECL Deck/Curb Mount Kit</td>
+                        <td>Store SKU</td>
+                        <td>(size specific)</td>
+                        <td>1</td>
+                        <td>Set</td>
+                        <td class="price-col">$200.00</td>
+                        <td class="price-col">$200.00</td>
+                    </tr>
+                    <tr>
+                        <td>Box Vents</td>
+                        <td>Master Flow 60 sq.in. Aluminum Slant-Back</td>
+                        <td>100041904</td>
+                        <td>SSB960ABL</td>
+                        <td>5</td>
+                        <td>Units</td>
+                        <td class="price-col">$60.00</td>
+                        <td class="price-col">$300.00</td>
+                    </tr>
+                    <tr>
+                        <td>Pipe Boots</td>
+                        <td>Gibraltar 3–4" Adjustable Pipe Flashing</td>
+                        <td>1000028402</td>
+                        <td>(example)</td>
+                        <td>6</td>
+                        <td>Units</td>
+                        <td class="price-col">$30.00</td>
+                        <td class="price-col">$180.00</td>
+                    </tr>
+                    <tr>
+                        <td>Hip & Ridge Caps</td>
+                        <td>GAF Ridge Cap for Timberline HDZ</td>
+                        <td>Matching</td>
+                        <td>(match shingle)</td>
+                        <td>5</td>
+                        <td>Bundles</td>
+                        <td class="price-col">$45.00</td>
+                        <td class="price-col">$225.00</td>
+                    </tr>
+                    <tr>
+                        <td>Starter Shingles</td>
+                        <td>Owens/GAF Starter Strip Plus</td>
+                        <td>311784464</td>
+                        <td>(example)</td>
+                        <td>4</td>
+                        <td>Bundles</td>
+                        <td class="price-col">$38.00</td>
+                        <td class="price-col">$152.00</td>
+                    </tr>
+                    <tr class="subtotal-row">
+                        <td colspan="7">MAIN MATERIALS SUBTOTAL</td>
+                        <td class="price-col">$7,084.50</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="section">
+                <h2>Supplemental Materials (Fasteners, Sealant, Consumables)</h2>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Home Depot Product</th>
+                        <th>Internet #</th>
+                        <th>Model #</th>
+                        <th>Qty</th>
+                        <th>Unit</th>
+                        <th class="price-col">Price</th>
+                        <th class="price-col">Total</th>
+                    </tr>
+                    <tr>
+                        <td>Roofing Coil Nails</td>
+                        <td>Grip-Rite 1-1/4" × 0.120 Electrogalv (7,200/box)</td>
+                        <td>100394342</td>
+                        <td>GRCR3DGAL</td>
+                        <td>2-3</td>
+                        <td>Boxes</td>
+                        <td class="price-col">$49.98</td>
+                        <td class="price-col">$99.96–$149.94</td>
+                    </tr>
+                    <tr>
+                        <td>Cap Nails</td>
+                        <td>Grip-Rite 1" × 12ga Plastic Round Cap (3,000)</td>
+                        <td>100111688</td>
+                        <td>GCB1</td>
+                        <td>2</td>
+                        <td>Buckets</td>
+                        <td class="price-col">$39.00</td>
+                        <td class="price-col">$78.00</td>
+                    </tr>
+                    <tr>
+                        <td>Polyurethane Sealant</td>
+                        <td>Loctite PL S30 10oz Black Roof & Flashing</td>
+                        <td>326127915</td>
+                        <td>2899405</td>
+                        <td>6-10</td>
+                        <td>Tubes</td>
+                        <td class="price-col">$8.98</td>
+                        <td class="price-col">$53.88–$89.80</td>
+                    </tr>
+                    <tr>
+                        <td>OSB Sheathing (optional)</td>
+                        <td>OSB 7/16 Application 4' × 8' Panel</td>
+                        <td>202106230</td>
+                        <td>386081</td>
+                        <td>4-6</td>
+                        <td>Sheets</td>
+                        <td class="price-col">$17.98</td>
+                        <td class="price-col">$71.92–$107.88</td>
+                    </tr>
+                    <tr>
+                        <td>Contractor Bags</td>
+                        <td>Husky 42 Gal. Contractor Bags (50-Count)</td>
+                        <td>202973825</td>
+                        <td>HK42WC050B</td>
+                        <td>1-2</td>
+                        <td>Boxes</td>
+                        <td class="price-col">$29.97</td>
+                        <td class="price-col">$29.97–$59.94</td>
+                    </tr>
+                    <tr class="subtotal-row">
+                        <td colspan="7">SUPPLEMENTAL SUBTOTAL</td>
+                        <td class="price-col">$333.73–$557.56</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="total-section">
+                <h3>Order Summary</h3>
+                <div class="total-grid">
+                    <div class="label">Main Materials:</div>
+                    <div class="value">$7,084.50</div>
+                    <div class="label">Supplemental (est.):</div>
+                    <div class="value">$400.00–$550.00</div>
+                </div>
+                <div class="total-grid grand-total">
+                    <div class="label">GRAND TOTAL:</div>
+                    <div class="value">$7,484.50–$7,634.50</div>
+                </div>
+            </div>
+            
+            <div class="note">
+                <strong>Note:</strong> SKUs marked 'Store SKU' or '(local)' are store-specific. At the Pro Desk, hand this PO in as-is and let them plug in exact SKU numbers for your Sacramento store while preserving quantities and pricing.
+            </div>
+            
+            <div class="signature-section">
+                <div class="signature-block">
+                    <div class="label">Contractor Signature:</div>
+                    <div class="signature-line"></div>
+                    <div class="signature-name">Solomon M. Rigney | License #1126099</div>
+                    <div style="margin-top: 1rem;">
+                        <div class="label">Date:</div>
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+                <div class="signature-block">
+                    <div class="label">Pro Desk Approval:</div>
+                    <div class="signature-line"></div>
+                    <div style="margin-top: 1rem;">
+                        <div class="label">Date:</div>
+                        <div class="signature-line"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="license-badge">
+                Licensed, Bonded, and Insured for General Building (B) Operations
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
